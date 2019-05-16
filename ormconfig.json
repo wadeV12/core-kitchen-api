@@ -1,0 +1,10 @@
+{
+  "type": "mysql",
+  "host": "coreapi.mysql.tools",
+  "port": 3306,
+  "username": "coreapi_db",
+  "password": "-p#1Uxp5J4",
+  "database": "coreapi_db",
+  "entities": ["src/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
