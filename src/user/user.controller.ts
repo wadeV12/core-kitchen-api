@@ -10,7 +10,7 @@ export class UserController {
 
   @Get()
   public async get() {
-    return 'wow';
+    return await this.userService.getAll();
   }
 
   @Post()

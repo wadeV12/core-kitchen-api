@@ -18,4 +18,8 @@ export class UserService {
 
     return await this.userRepository.save(user);
   }
+
+  public async getAll(): Promise<User[]> {
+    return await this.userRepository.find();
+  }
 }

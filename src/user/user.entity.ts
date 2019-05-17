@@ -1,8 +1,8 @@
-import { Column, Entity } from 'typeorm';
+import { Column, CreateDateColumn, Entity } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGeneratedColumn';
 
 export interface IUser {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -12,8 +12,8 @@ export interface IUser {
 
 @Entity()
 export class User implements IUser {
-  @PrimaryGeneratedColumn()
-  public id: string;
+  @PrimaryGeneratedColumn('uuid')
+  public id: number;
 
   @Column()
   public firstName: string;
@@ -21,10 +21,13 @@ export class User implements IUser {
   @Column()
   public lastName: string;
 
-  @Column()
+  @Column({
+    unique: true,
+    nullable: false,
+  })
   public email: string;
 
-  @Column({
+  @CreateDateColumn({
     type: 'datetime',
   })
   public createdAt: string;
